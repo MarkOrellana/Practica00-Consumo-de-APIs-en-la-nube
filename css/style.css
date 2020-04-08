@@ -1,0 +1,22 @@
+body{
+    font-family: Calibri;
+    text-align: center;
+    background-color:cyan;
+  }
+    input {
+      width: 500px;
+      padding: 8px;
+    }
+    .form{
+      text-align: center;
+    }
+    /* #answer{
+        background-color:#009cde;
+        color:#ffffff;
+        text-decoration:none;
+        text-align: center;
+    } */
+    #destacada {
+        width: 120px;
+        height: 250px;
+      }
