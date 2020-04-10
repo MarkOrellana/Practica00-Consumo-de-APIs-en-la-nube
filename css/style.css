@@ -1,7 +1,6 @@
 body{
     font-family: Calibri;
-    /*text-align: center;*/
-    background-color:cyan;
+    background-color:black;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -17,8 +16,10 @@ body{
         width: 120px;
         height: 250px;
       }
-      #dat{
+    #dat{
         padding-top: 10em;
     
     }
+
+
     
