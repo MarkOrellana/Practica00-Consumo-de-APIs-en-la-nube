@@ -2,7 +2,7 @@
 var numSiguiente = 1
 var totalPelis = 0
 
-function eventoBtn(){
+function eventoBtn() {
     const searchText = document.getElementById('searchText');
 
     let url = `http://www.omdbapi.com/?s=${searchText.value}&apikey=86584c34`;
@@ -37,7 +37,7 @@ function cargarDatos(txto) {
             document.getElementById('answer').innerHTML = "<h2> No se a encontrado resultados. </h2>"
         }
     };
-    xmlhttp.open("GET", txto  , true);
+    xmlhttp.open("GET", txto, true);
     xmlhttp.send();
 
 }
@@ -52,7 +52,7 @@ function buscaId(id) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             const peli = JSON.parse(this.responseText)
-            console.log(peli);
+            //console.log(peli);
             deta = `
             <div class="modal-dialog">
             <div class="modal-content md">
@@ -79,7 +79,7 @@ function buscaId(id) {
                 </div>
             </div>
         </div>`;
-            console.log(deta);
+            //console.log(deta);
 
             document.getElementById("dat").innerHTML = deta
         }
@@ -106,7 +106,7 @@ function pag(pg) {
     console.log(totalPel)
 
     let html = `
-        <div style="display: flex; align-items: center; justify-content: center;" id="numPagina">
+        <div style="display: flex; align-items: center; justify-content: center;" id="numPg">
                 <li class="previous">
                     <a class="page-link"> Pagina ${numSiguiente}/${Math.round(totalPel)} </a>
                 </li>
@@ -115,6 +115,6 @@ function pag(pg) {
     document.querySelector('#numPagina').innerHTML = html
 
     let url = `http://www.omdbapi.com/?apikey=d079c6fd&s=${titulo}&page=${numSiguiente}`
-    console.log(url)
+    //console.log(url)
     cargarDatos(url)
 }
