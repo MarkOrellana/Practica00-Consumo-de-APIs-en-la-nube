@@ -22,12 +22,25 @@
             <h1>OMDb API</h1> Busca películas por nombre:
         </p>
         <input type="text" class="form-control" id="searchText" placeholder="Introduzca titulo">
-        <input type="button" value="Search" onclick="cargarDatos(searchText.value)"><br><br>
+        <input type="button" value="Search" onclick="eventoBtn()"><br><br>
     </div>
     <h2>Resultados</h2>
     <div class="row row-cols-1 row-cols-md-3 " id="answer">
     </div>
-
+    <div class="container-fluid" style="align-items: center;">
+        <!-- <br> -->
+        <nav aria-label="...">
+            <ul class="pager">
+                <li class="previous" id="back"><a onclick="pag(-1)">&larr;Anterior</a></li>
+                <li class="next" id=""><a onclick="pag(1)">Siguiente&rarr;</a></li>
+            </ul>
+        </nav>
+        <div class="enabled" style="display: flex; align-items: center; justify-content: center;" id="numPagina">
+            <li class="previous">
+                <a class="page-link" aria-disabled="true">Pagina 1</a>
+            </li>
+        </div>
+    </div>
     <div class="modal fade " id="dat">
         <div class="modal-dialog ">
             <div class="modal-content md">
@@ -39,6 +52,7 @@
             </div>
         </div>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <script type="text/javascript" src="funciones.js"></script>

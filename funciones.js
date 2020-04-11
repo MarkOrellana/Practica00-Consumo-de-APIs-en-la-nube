@@ -1,4 +1,13 @@
 //var peli=null;
+var numSiguiente = 1
+var totalPelis = 0
+
+function eventoBtn(){
+    const searchText = document.getElementById('searchText');
+
+    let url = `http://www.omdbapi.com/?s=${searchText.value}&apikey=86584c34`;
+    cargarDatos(url);
+}
 function cargarDatos(txto) {
     console.log(txto);
     var detalles = "";
@@ -28,7 +37,7 @@ function cargarDatos(txto) {
             document.getElementById('answer').innerHTML = "<h2> No se a encontrado resultados. </h2>"
         }
     };
-    xmlhttp.open("GET", "http://www.omdbapi.com/?s=" + txto + "&apikey=86584c34", true);
+    xmlhttp.open("GET", txto  , true);
     xmlhttp.send();
 
 }
@@ -77,4 +86,35 @@ function buscaId(id) {
     };
     xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=86584c34&i=" + id, true);
     xmlhttp.send();
+}
+
+function pag(pg) {
+    var titulo = document.getElementById("searchText").value;
+    numSiguiente = numSiguiente + (pg);
+    console.log(numSiguiente)
+
+
+    if (numSiguiente <= 1) {
+        numSiguiente = 1
+        document.getElementById('back').classList.add("disabled");
+
+    } else {
+        document.getElementById('back').classList.remove("disabled");
+    }
+
+    var totalPel = totalPelis / 10
+    console.log(totalPel)
+
+    let html = `
+        <div style="display: flex; align-items: center; justify-content: center;" id="numPagina">
+                <li class="previous">
+                    <a class="page-link"> Pagina ${numSiguiente}/${Math.round(totalPel)} </a>
+                </li>
+        </div>
+    `;
+    document.querySelector('#numPagina').innerHTML = html
+
+    let url = `http://www.omdbapi.com/?apikey=d079c6fd&s=${titulo}&page=${numSiguiente}`
+    console.log(url)
+    cargarDatos(url)
 }
