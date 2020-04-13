@@ -112,7 +112,7 @@ function pag(pg) {
                 </li>
         </div>
     `;
-    document.querySelector('#numPagina').innerHTML = html
+    document.querySelector('#numPg').innerHTML = html
 
     let url = `http://www.omdbapi.com/?apikey=d079c6fd&s=${titulo}&page=${numSiguiente}`
     //console.log(url)
