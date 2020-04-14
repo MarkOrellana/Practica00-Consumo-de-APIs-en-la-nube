@@ -5,7 +5,7 @@ var totalPelis = 0
 function eventoBtn() {
     const searchText = document.getElementById('searchText');
 
-    let url = `http://www.omdbapi.com/?s=${searchText.value}&apikey=86584c34`;
+    let url = `http://www.omdbapi.com/?s=${searchText.value}&apikey=86584c34&plot=full`;
     cargarDatos(url);
 }
 function cargarDatos(txto) {
